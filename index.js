@@ -12,4 +12,3 @@ app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`); // mensagem para mostra  o local onde o servidor esta rodando. 
 });
 
-// TV1UhPU0doHTmqtK
