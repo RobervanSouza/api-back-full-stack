@@ -6,7 +6,7 @@ const validId = (req, res, next) => {
         return res
             .status(400)
             .send({
-                message: 'ID invalido, verifique o ID de seu restaurante no GET_ALL',
+                message: 'ID invalido, verifique o ID de seu re no GET_ALL',
             });
     }
 

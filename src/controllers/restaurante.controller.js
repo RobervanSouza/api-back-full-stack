@@ -19,8 +19,46 @@ const criarRestauranteController = async (req, res) => {
         .send({ message: "Restaurante cadastrado com sucesso", novoRestaurante});
 };
 
+const idController = async (req, res) => {
+    const idParam = req.params.id;
+
+    const restaurante = await restauranteService.idRestauranteService(idParam);
+    if (restaurante === undefined) {
+        res
+            .status(404)
+            .send({ message: ' Nenhum restaurante encontrado, verifique o id!!!' });
+    } else {
+        res.send({
+            message: ' Restaurante encontrado com sucesso!!!',
+            escolhaRestaurante: restaurante,
+        });
+    }
+};
+
+const Editarcontroller = async (req, res) => {
+    const parametroId = req.params.id;
+    const editeRestaurante = req.body;
+    const editRestaurante = await restauranteService.editarRestauranteService(
+        parametroId,
+        editeRestaurante,
+    );
+    res.send({ menssage: 'Restaurante editado com sucesso!!!', editRestaurante });
+};
+
+// deletar convite
+const deleteRestaurantecontroller = async (req, res) => {
+    const idparam = req.params.id;
+    const teste = await restauranteService.deleteRestauranteService(idparam);
+    if (!teste) {
+        return res.status(404).send({ message: 'id not found' });
+    }
+    res.send({ message: 'restaurante  deletado com sucesso!!!' });
+};
 
 module.exports = {
     restauranteController,
     criarRestauranteController,
+    deleteRestaurantecontroller,
+    Editarcontroller,
+    idController,
 };
