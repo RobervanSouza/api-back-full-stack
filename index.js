@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors"); 
+const cors = require("cors");
 const routes = require("./src/router/restaurante.router");
 const conectDb = require("./src/db/conection");
 require("dotenv").config();
