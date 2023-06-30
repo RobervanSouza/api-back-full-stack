@@ -151,13 +151,37 @@ const livrosSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+const celularesSchema = new mongoose.Schema({
+    nome: {
+        type: String,
+        required: true,
+    },
+    valor: {
+        type: Number,
+        required: true,
+    },
+    descricao: {
+        type: String,
+        required: true,
+    },
+    imageUrl: {
+        type: String,
+        required: true,
+    },
+    marca: {
+        type: String,
+        required: true,
+    },
+}, {
+    timestamps: true
+});
 const filmesSchema = new mongoose.Schema({
     nome: {
         type: String,
         required: true,
     },
     ano: {
-        type: String,
+        type: Number,
         required: true,
     },
     descricao: {
@@ -179,8 +203,9 @@ const moto = mongoose.model("Moto", motoSchema);
 const filmes = mongoose.model("Filme", filmesSchema);
 const livro = mongoose.model("Livro", livrosSchema);
 const turismo = mongoose.model("Turismo", turismoSchema);
-const cachorro = mongoose.model("cachorro", cachorroSchema);
-const gato = mongoose.model("gato", gatoSchema);
+const cachorro = mongoose.model("Cachorro", cachorroSchema);
+const gato = mongoose.model("Gato", gatoSchema);
+const celular = mongoose.model("Celular", celularesSchema);
 
 module.exports = {
     restaurante,
@@ -191,5 +216,6 @@ module.exports = {
     livro,
     turismo,
     cachorro,
-    gato
+    gato,
+    celular
 };

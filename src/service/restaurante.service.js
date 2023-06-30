@@ -1,37 +1,45 @@
-const { restaurante } = require("../models/models.restaurante");
+const models = require('../models/models.restaurante'); 
+
+function getModel(modelName) {
+    const model = models[ modelName ]; 
+    if (!model) {
+        throw new Error(`Model '${modelName}' não encontrado.`);
+    }
+    return model;
+}
+
+function getAll(modelName) {
+    const model = getModel(modelName);
+    
+    return model.find();
+}
+
+function getById(modelName, id) {
+    const model = getModel(modelName);
+    return model.findById(id);
+}
+
+function create(modelName, data) {
+    const model = getModel(modelName);
+    return model.create(data);
+}
+
+function update(modelName, id, data) {
+    const model = getModel(modelName);
+    return model.findByIdAndUpdate(id, data, { new: true });
+}
+
+function deleteById(modelName, id) {
+    const model = getModel(modelName);
+    return model.findByIdAndDelete(id);
+}
 
 
-const todosRestauranteService = async () => {
-    const restaurantes = await restaurante.find();
-    return restaurantes;
-};
-
-const criarRestauranteService = async (novoRestaurante) => {
-    const restaurantes = await restaurante.create(novoRestaurante);
-    return restaurantes;
-};
-const idRestauranteService = async (idParam) => {
-    const restaurante = await restaurante.findById(idParam);
-    return restaurante;
-};
-
-const editarRestauranteService = async (idParam, editaRestaurante) => {
-    const editaRestaurantes = await restaurante.findByIdAndUpdate(
-        idParam,
-        editaRestaurante,
-    ).setOptions({ returnOriginal: false });
-    return editaRestaurantes;
-};
-
-// delete convite
-const deleteRestauranteService = async (idParam) => {
-    return await restaurante.findByIdAndDelete(idParam);
-};
 
 module.exports = {
-    todosRestauranteService,
-    criarRestauranteService,
-    editarRestauranteService,
-    deleteRestauranteService,
-    idRestauranteService
+    getAll,
+    getById,
+    create,
+    update,
+    deleteById
 };

@@ -1,64 +1,93 @@
-const restauranteService = require('../service/restaurante.service');
-// const mongoose = require('mongoose');
+const service = require('../service/restaurante.service');
+const mongoose = require("mongoose"); // inporta o mongoose
 
-const restauranteController = async (req, res) => {
-    const todosRestaurantes = await restauranteService.todosRestauranteService();
-    if(todosRestaurantes.length === 0)  {
-        return res
-            .status(404)
-            .send({ message: " Não tem restaurante cadasttrado"});
-    }
-    res.send({ message: "Lista com todos os restaurantes", todosRestaurantes});
-};
 
-const criarRestauranteController = async (req, res) => {
-    const restaurante = req.body;
-
-    const novoRestaurante = await restauranteService.criarRestauranteService(restaurante);
-    res.status(201)
-        .send({ message: "Restaurante cadastrado com sucesso", novoRestaurante});
-};
-
-const idController = async (req, res) => {
-    const idParam = req.params.id;
-
-    const restaurante = await restauranteService.idRestauranteService(idParam);
-    if (restaurante === undefined) {
-        res
-            .status(404)
-            .send({ message: ' Nenhum restaurante encontrado, verifique o id!!!' });
-    } else {
-        res.send({
-            message: ' Restaurante encontrado com sucesso!!!',
-            escolhaRestaurante: restaurante,
+function getAll(req, res, next) {
+    const modelName = req.params.modelName;
+    service.getAll(modelName)
+        .then(data => {
+            if (data.length === 0) {
+                res.status(404).send({ message: `Nenhum ${modelName} encontrado` });
+            } else {
+                res.status(200).send({ message: `Lista de ${modelName} encontrados`, data });
+            }
+        })
+        .catch(error => {
+            next(error);
         });
-    }
-};
+}
 
-const Editarcontroller = async (req, res) => {
-    const parametroId = req.params.id;
-    const editeRestaurante = req.body;
-    const editRestaurante = await restauranteService.editarRestauranteService(
-        parametroId,
-        editeRestaurante,
-    );
-    res.send({ menssage: 'Restaurante editado com sucesso!!!', editRestaurante });
-};
-
-// deletar convite
-const deleteRestaurantecontroller = async (req, res) => {
-    const idparam = req.params.id;
-    const teste = await restauranteService.deleteRestauranteService(idparam);
-    if (!teste) {
-        return res.status(404).send({ message: 'id not found' });
+function getById(req, res, next) {
+    const modelName = req.params.modelName;
+    const id = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400).send({ message: `ID inválido: ${id}, falta caracteres` });
+        return;
     }
-    res.send({ message: 'restaurante  deletado com sucesso!!!' });
-};
+
+    service.getById(modelName, id)
+        .then(data => {
+            if (!data) {
+                res.status(404).send({ message: `Nenhum ID de ${modelName} encontrado` });
+            } else {
+                res.status(200).send({ message: `ID de ${modelName} encontrado`, data });
+            }
+        })
+        .catch(error => {
+            next(error);
+        });
+}
+
+function create(req, res, next) {
+    const modelName = req.params.modelName;
+    const newData = req.body;
+
+    service.create(modelName, newData)
+        .then(createdData => {
+            res.status(201).json({ message: `${modelName} criado com sucesso`, data: createdData });
+        })
+        .catch(error => {
+            next(error);
+        });
+}
+
+function update(req, res, next) {
+    const modelName = req.params.modelName;
+    const id = req.params.id;
+    const updatedData = req.body;
+
+    service.update(modelName, id, updatedData)
+        .then(updatedData => {
+            if (!updatedData) {
+                res.status(404).send({ message: `Id ${modelName} não encontrado` });
+            } else {
+                res.status(201).json({ message: `${modelName} editado com sucesso`, data: updatedData });
+            }
+        })
+        .catch(error => {
+            next(error);
+        });
+}
+
+function deleteById(req, res, next) {
+    const modelName = req.params.modelName;
+    const id = req.params.id;
+
+    service.deleteById(modelName, id)
+        .then(() => {
+            res.sendStatus(204);
+        })
+        .catch(error => {
+            next(error);
+        });
+}
+
+
 
 module.exports = {
-    restauranteController,
-    criarRestauranteController,
-    deleteRestaurantecontroller,
-    Editarcontroller,
-    idController,
+    getAll,
+    getById,
+    create,
+    update,
+    deleteById
 };

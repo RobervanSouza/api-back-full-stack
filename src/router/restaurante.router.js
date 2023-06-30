@@ -1,31 +1,19 @@
-const router = require("express").Router();
-
-const restauranteController = require ('../controllers/restaurante.controller');
-
-const { validId, validObjectBody } = require('../middlewares/restaurante.middlewares');
-
-router.get("/restaurante", restauranteController.restauranteController);
-
-router.post("/criar-restaurante", validObjectBody, restauranteController.criarRestauranteController);
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/restaurante.controller');
 
 
-router.get(
-    '/restaurante/:id',
-    validId,
-    restauranteController.idController,
-);
+router.get('/:modelName', controller.getAll);
 
-router.put(
-    '/editar/:id',
-    validId,
-    validObjectBody,
-    restauranteController.Editarcontroller,
-);
-router.delete(
-    '/delete/:id',
-    validId,
-    restauranteController.deleteRestaurantecontroller,
-);
 
+router.get('/:modelName/:id', controller.getById);
+
+
+router.post('/:modelName',  controller.create);
+
+router.put('/:modelName/:id', controller.update);
+
+
+router.delete('/:modelName/:id', controller.deleteById);
 
 module.exports = router;
