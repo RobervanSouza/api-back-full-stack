@@ -1,4 +1,4 @@
-const service = require('../service/restaurante.service');
+const service = require('../service/api.service');
 const mongoose = require("mongoose"); // inporta o mongoose
 
 

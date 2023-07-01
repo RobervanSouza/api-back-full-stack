@@ -1,7 +1,7 @@
-const models = require('../models/models.restaurante'); 
+const models = require('../models/api.restaurante');
 
 function getModel(modelName) {
-    const model = models[ modelName ]; 
+    const model = models[ modelName ];
     if (!model) {
         throw new Error(`Model '${modelName}' não encontrado.`);
     }
@@ -10,7 +10,7 @@ function getModel(modelName) {
 
 function getAll(modelName) {
     const model = getModel(modelName);
-    
+
     return model.find();
 }
 

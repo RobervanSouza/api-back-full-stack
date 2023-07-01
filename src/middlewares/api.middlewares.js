@@ -10,7 +10,7 @@ const {
     cachorro,
     gato,
     celular
-} = require('../models/models.restaurante');
+} = require('../models/api.restaurante');
 const models = [
     restaurante,
     hotel,
@@ -45,4 +45,4 @@ function validarCampos(req, res, next) {
     }
 }
 
-module.exports= validarCampos;
+module.exports = validarCampos;
