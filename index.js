@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const routes = require("./src/router/api.router");
+// const routes = require("./src/router/api.router");
 const conectDb = require("./src/db/api.conection");
 require("dotenv").config();
 
@@ -9,7 +9,9 @@ const app = express();
 conectDb();
 app.use(express.json());
 app.use(cors());
-app.use("/api", routes);
+app.get("/", (req, res) => {
+    res.send("Hello World! Rashel");
+});
 
 
 app.listen(porta, () => {
