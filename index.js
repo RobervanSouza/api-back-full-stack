@@ -4,18 +4,12 @@ const routes = require("./src/router/api.router");
 const conectDb = require("./src/db/api.conection");
 require("dotenv").config();
 
-// const router = express.Router();
-const controller = require('./src/controllers/api.controller');
-
-
-
 const porta = process.env.PORT || 3333;
 const app = express();
 conectDb();
 app.use(express.json());
 app.use(cors());
-app.use("/", routes);
-app.get('/:modelName', controller.getAll);
+app.use("/api", routes);
 
 
 app.listen(porta, () => {
