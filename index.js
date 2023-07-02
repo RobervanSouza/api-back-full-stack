@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const routes = require("./src/router/api.router");
+// const routes = require("./src/router/api.router");
 const conectDb = require("./src/db/api.conection");
 require("dotenv").config();
 
@@ -10,8 +10,24 @@ conectDb();
 app.use(express.json());
 app.use(cors());
 // app.use("/api", routes);
-app.get("/", routes
-);
+
+
+
+const controller = require('./src/controllers/api.controller');
+
+
+app.get('/:modelName', controller.getAll);
+
+
+app.get('/:modelName/:id', controller.getById);
+
+
+app.post('/:modelName', controller.create);
+
+app.put('/:modelName/:id', controller.update);
+
+
+app.delete('/:modelName/:id', controller.deleteById);
 
 
 app.listen(porta, () => {
