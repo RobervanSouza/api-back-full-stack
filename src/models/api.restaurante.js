@@ -69,11 +69,11 @@ const motoSchema = new mongoose.Schema({
         required: true,
     },
     marca: {
-        type: Number, 
+        type: String, 
         required: true,
     },
     ano: {
-        type: String, 
+        type: Number, 
         required: true,
     },
     imageUrl: {
