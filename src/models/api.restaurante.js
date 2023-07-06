@@ -192,7 +192,7 @@ const filmesSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    tema: {
+    genero: {
         type: String,
         required: true,
     },
