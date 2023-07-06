@@ -208,7 +208,7 @@ const restaurante = mongoose.model("Restaurante", restauranteSchema);
 const hotel = mongoose.model("Hotel", hotelSchema);
 const carro = mongoose.model("Carro", carroSchema);
 const moto = mongoose.model("Moto", motoSchema);
-const filmes = mongoose.model("Filme", filmesSchema);
+const filme = mongoose.model("Filme", filmesSchema);
 const livro = mongoose.model("Livro", livrosSchema);
 const turismo = mongoose.model("Turismo", turismoSchema);
 const cachorro = mongoose.model("Cachorro", cachorroSchema);
@@ -220,7 +220,7 @@ module.exports = {
     hotel,
     carro,
     moto,
-    filmes,
+    filme,
     livro,
     turismo,
     cachorro,
