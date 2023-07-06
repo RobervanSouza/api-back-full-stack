@@ -9,7 +9,7 @@ function getAll(req, res, next) {
             if (data.length === 0) {
                 res.status(404).send({ message: `Nenhum ${modelName} encontrado` });
             } else {
-                res.status(200).send({ message: `Lista de ${modelName} encontrados, total de ${data.length} itens`, data });
+                res.status(200).send({ message: `Lista de ${modelName} encontrados, total de: ( ${data.length} ) itens`, data });
             }
         })
         .catch(error => {
