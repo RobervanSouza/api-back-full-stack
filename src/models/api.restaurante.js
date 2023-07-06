@@ -172,15 +172,11 @@ const celularesSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    descricao: {
+    marca: {
         type: String,
         required: true,
     },
     imageUrl: {
-        type: String,
-        required: true,
-    },
-    marca: {
         type: String,
         required: true,
     },
@@ -229,5 +225,5 @@ module.exports = {
     turismo,
     cachorro,
     gato,
-    celular
+    celular,
 };
