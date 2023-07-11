@@ -30,20 +30,19 @@ Uma API dinâmica desenvolvida para cadastrar, editar e excluir itens de diferen
 
 ## 💻 Uso
 
-## Obtendo todos os itens de uma categoria
+### Obtendo todos os itens de uma categoria
+GET /api/:categoria
 
 ### Obtendo um item pelo ID
 GET /api/:categoria/:id
-### Criando um novo item
 
+### Criando um novo item
 POST /api/:categoria
 
 ### Atualizando um item existente
-
 PUT /api/:categoria/:id
 
 ### Excluindo um item
-
 DELETE /api/:categoria/:id
 
 ## 👤 Autor
