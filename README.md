@@ -30,7 +30,7 @@ Uma API dinâmica desenvolvida para cadastrar, editar e excluir itens de diferen
 
 ## 💻 Uso
 
-### Obtendo todos os itens de uma categoria
+## Obtendo todos os itens de uma categoria
 
 ### Obtendo um item pelo ID
 GET /api/:categoria/:id
