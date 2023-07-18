@@ -217,10 +217,7 @@ const calcadoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    foto: {
-        type: String,
-        required: true,
-    },
+  
     preco: {
         type: Number,
         required: true,
