@@ -69,11 +69,11 @@ const motoSchema = new mongoose.Schema({
         required: true,
     },
     marca: {
-        type: String, 
+        type: String,
         required: true,
     },
     ano: {
-        type: Number, 
+        type: Number,
         required: true,
     },
     imageUrl: {
@@ -217,7 +217,7 @@ const calcadoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-  
+
     preco: {
         type: Number,
         required: true,
@@ -230,34 +230,34 @@ const calcadoSchema = new mongoose.Schema({
         type: [ String ],
         required: true,
     },
-    detalhes: {
-        LINHA: {
-            type: String,
-            required: true,
-        },
-       
-        FECHAMENTO: {
-            type: String,
-            required: true,
-        },
-        ORIGEM: {
-            type: String,
-            required: true,
-        },
-        TECNOLOGIA: {
-            type: String,
-            required: true,
-        },
-        GARANTIA_DO_FABRICANTE: {
-            type: String,
-            required: true,
-        },
-        INDICADO_PARA: {
-            type: String,
-            required: true,
-        },
-     
+
+    linha: {
+        type: String,
+        required: true,
     },
+
+    fechamento: {
+        type: String,
+        required: true,
+    },
+    origem: {
+        type: String,
+        required: true,
+    },
+    tecnologia: {
+        type: String,
+        required: true,
+    },
+    garantia: {
+        type: String,
+        required: true,
+    },
+    indicacao: {
+        type: String,
+        required: true,
+    },
+
+
 }, {
     timestamps: true,
 });
