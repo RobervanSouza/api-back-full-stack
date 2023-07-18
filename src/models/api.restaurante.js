@@ -238,10 +238,7 @@ const calcadoSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        GÊNERO: {
-            type: String,
-            required: true,
-        },
+       
         FECHAMENTO: {
             type: String,
             required: true,
