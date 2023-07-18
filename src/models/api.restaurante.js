@@ -204,6 +204,105 @@ const filmesSchema = new mongoose.Schema({
     timestamps: true
 });
 
+const calcadoSchema = new mongoose.Schema({
+    nome: {
+        type: String,
+        required: true,
+    },
+    imagem: {
+        type: String,
+        required: true,
+    },
+    descricao: {
+        type: String,
+        required: true,
+    },
+    foto: {
+        type: String,
+        required: true,
+    },
+    preco: {
+        type: Number,
+        required: true,
+    },
+    tamanho: {
+        type: [ String ],
+        required: true,
+    },
+    cores: {
+        type: [ String ],
+        required: true,
+    },
+    detalhes: {
+        LINHA: {
+            type: String,
+            required: true,
+        },
+        GÊNERO: {
+            type: String,
+            required: true,
+        },
+        FECHAMENTO: {
+            type: String,
+            required: true,
+        },
+        ORIGEM: {
+            type: String,
+            required: true,
+        },
+        TECNOLOGIA: {
+            type: String,
+            required: true,
+        },
+        GARANTIA_DO_FABRICANTE: {
+            type: String,
+            required: true,
+        },
+        INDICADO_PARA: {
+            type: String,
+            required: true,
+        },
+        PESO_DO_PRODUTO: {
+            type: String,
+            required: true,
+        },
+    },
+}, {
+    timestamps: true,
+});
+
+const calcadoMasculinoSchema = new mongoose.Schema({
+    ...calcadoSchema.obj,
+    genero: {
+        type: String,
+        required: true,
+        default: "Masculino",
+    },
+});
+
+const calcadoFemininoSchema = new mongoose.Schema({
+    ...calcadoSchema.obj,
+    genero: {
+        type: String,
+        required: true,
+        default: "Feminino",
+    },
+});
+
+const calcadoInfantilSchema = new mongoose.Schema({
+    ...calcadoSchema.obj,
+    genero: {
+        type: String,
+        required: true,
+        default: "Infantil",
+    },
+});
+
+const CalçadoMasculino = mongoose.model("CalçadoMasculino", calcadoMasculinoSchema);
+const CalçadoFeminino = mongoose.model("CalçadoFeminino", calcadoFemininoSchema);
+const CalçadoInfantil = mongoose.model("CalçadoInfantil", calcadoInfantilSchema);
+
+
 const restaurante = mongoose.model("Restaurante", restauranteSchema);
 const hotel = mongoose.model("Hotel", hotelSchema);
 const carro = mongoose.model("Carro", carroSchema);
@@ -216,6 +315,9 @@ const gato = mongoose.model("Gato", gatoSchema);
 const celular = mongoose.model("Celular", celularesSchema);
 
 module.exports = {
+    CalçadoFeminino,
+    CalçadoMasculino,
+    CalçadoInfantil,
     restaurante,
     hotel,
     carro,
