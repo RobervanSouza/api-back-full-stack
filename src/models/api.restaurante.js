@@ -259,10 +259,7 @@ const calcadoSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        PESO_DO_PRODUTO: {
-            type: String,
-            required: true,
-        },
+     
     },
 }, {
     timestamps: true,
