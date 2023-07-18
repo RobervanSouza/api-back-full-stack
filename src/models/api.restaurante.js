@@ -290,7 +290,7 @@ const calcadoInfantilSchema = new mongoose.Schema({
 });
 
 const CalçadoMasculino = mongoose.model("CalçadoMasculino", calcadoMasculinoSchema);
-const CalçadoFeminino = mongoose.model("CalçadoFeminino", calcadoFemininoSchema);
+const calcadoFeminino = mongoose.model("CalçadoFeminino", calcadoFemininoSchema);
 const CalçadoInfantil = mongoose.model("CalçadoInfantil", calcadoInfantilSchema);
 
 
@@ -306,7 +306,7 @@ const gato = mongoose.model("Gato", gatoSchema);
 const celular = mongoose.model("Celular", celularesSchema);
 
 module.exports = {
-    CalçadoFeminino,
+    calcadoFeminino,
     CalçadoMasculino,
     CalçadoInfantil,
     restaurante,
