@@ -244,7 +244,7 @@ const calcadoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    tecnologia: {
+    desconto: {
         type: String,
         required: true,
     },
