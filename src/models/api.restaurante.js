@@ -231,8 +231,8 @@ const calcadoSchema = new mongoose.Schema({
         required: true,
     },
 
-    linha: {
-        type: String,
+    lancamento: {
+        type: Boolean,
         required: true,
     },
 
