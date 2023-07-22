@@ -256,7 +256,7 @@ const calcadoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    vezes: {
+    parcelas: {
         type: Number,
         required: true,
     },
