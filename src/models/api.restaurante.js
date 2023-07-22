@@ -256,6 +256,10 @@ const calcadoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    vezes: {
+        type: Number,
+        required: true,
+    },
 
 
 }, {
