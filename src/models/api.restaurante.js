@@ -210,7 +210,7 @@ const calcadoSchema = new mongoose.Schema({
         required: true,
     },
     imageUrl: {
-        type: String,
+        type: [String],
         required: true,
     },
     descricao: {
