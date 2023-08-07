@@ -46,8 +46,17 @@ const cadastroSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
-    nascimento:{ type: Number,
-        require: true,
+    diaNascimento: {
+        type: Number,
+        required: true,
+    },
+    mesNascimento: {
+        type: Number,
+        required: true,
+    },
+    anoNascimento: {
+        type: Number,
+        required: true,
     },
     cep: {
         type: Number,
