@@ -50,7 +50,7 @@ const cadastroSchema = new mongoose.Schema({
         required: false, // Tornando este campo opcional
     },
     mesNascimento: {
-        type: Number,
+        type: String,
         required: false, // Tornando este campo opcional
     },
     anoNascimento: {
