@@ -66,6 +66,21 @@ const cadastroSchema = new mongoose.Schema({
 });
 
 
+const loginSchema = new mongoose.Schema({
+    //
+    email: {
+        type: String,
+        require: true,
+    },
+    senha: {
+        type: String,
+        require: true,
+    },
+   
+}, {
+    timestamps: true
+});
+
 const restauranteSchema = new mongoose.Schema({
     //
     nome: {
@@ -374,6 +389,7 @@ const cachorro = mongoose.model("Cachorro", cachorroSchema);
 const gato = mongoose.model("Gato", gatoSchema);
 const celular = mongoose.model("Celular", celularesSchema);
 const cadastro = mongoose.model("Cadastro", cadastroSchema);
+const login = mongoose.model("Login", loginSchema);
 
 module.exports = {
     calcadoFeminino,
@@ -390,4 +406,5 @@ module.exports = {
     gato,
     celular,
     cadastro,
+    login,
 };
