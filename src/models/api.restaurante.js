@@ -1,8 +1,16 @@
 const mongoose = require("mongoose"); // inporta o mongoose
 
 const cadastroSchema = new mongoose.Schema({
-    //
+    
     nome: {
+        type: String,
+        require: true,
+    },
+    email: {
+        type: String,
+        require: true,
+    },
+    senha: {
         type: String,
         require: true,
     },
