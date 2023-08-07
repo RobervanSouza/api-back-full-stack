@@ -1,5 +1,54 @@
 const mongoose = require("mongoose"); // inporta o mongoose
 
+const cadastroSchema = new mongoose.Schema({
+    //
+    nome: {
+        type: String,
+        require: true,
+    },
+    sobrenome: {
+        type: String,
+        require: true,
+    },
+    sexo: {
+        type: String,
+        require: true,
+    },
+    celular: {
+        type: Number,
+        require: true,
+    },
+    rua: {
+        type: String,
+        require: true,
+    },
+    bairro: {
+        type: String,
+        require: true,
+    },
+    cidade: {
+        type: String,
+        require: true,
+    },
+    estado: {
+        type: String,
+        require: true,
+    },
+    cpf: {
+        type: Number,
+        require: true,
+    },
+    nascimento:{ type: Number,
+        require: true,
+    },
+    cep: {
+        type: Number,
+        require: true,
+    },
+}, {
+    timestamps: true
+});
+
 
 const restauranteSchema = new mongoose.Schema({
     //
@@ -308,6 +357,7 @@ const turismo = mongoose.model("Turismo", turismoSchema);
 const cachorro = mongoose.model("Cachorro", cachorroSchema);
 const gato = mongoose.model("Gato", gatoSchema);
 const celular = mongoose.model("Celular", celularesSchema);
+const cadastro = mongoose.model("Cadastro", cadastroSchema);
 
 module.exports = {
     calcadoFeminino,
@@ -323,4 +373,5 @@ module.exports = {
     cachorro,
     gato,
     celular,
+    cadastro,
 };
