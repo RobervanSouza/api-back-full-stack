@@ -1,66 +1,65 @@
 const mongoose = require("mongoose"); // inporta o mongoose
 
 const cadastroSchema = new mongoose.Schema({
-    
     nome: {
         type: String,
-        require: true,
+        required: true,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
     },
     senha: {
         type: String,
-        require: true,
+        required: true,
     },
     sobrenome: {
         type: String,
-        require: true,
+        required: true,
     },
     sexo: {
         type: String,
-        require: true,
+        required: true,
     },
     celular: {
         type: Number,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
     rua: {
         type: String,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
     bairro: {
         type: String,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
     cidade: {
         type: String,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
     estado: {
         type: String,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
     cpf: {
         type: Number,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
     diaNascimento: {
         type: Number,
-        required: true,
+        required: false, // Tornando este campo opcional
     },
     mesNascimento: {
         type: Number,
-        required: true,
+        required: false, // Tornando este campo opcional
     },
     anoNascimento: {
         type: Number,
-        required: true,
+        required: false, // Tornando este campo opcional
     },
     cep: {
         type: Number,
-        require: true,
+        required: false, // Tornando este campo opcional
     },
 }, {
     timestamps: true
